@@ -1,0 +1,3 @@
+ООО"БАРСИК ХОРОШИЙ";
+123546579;
+The input field is cleared but the error message is not updated
