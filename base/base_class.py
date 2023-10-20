@@ -21,7 +21,7 @@ class Base:
     options.add_argument("--disable-cache")
     options.add_argument("--window-size=1920,1080")
     options.page_load_strategy = "eager"
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--disable-blink-features=AutomationControlled")
     s = Service()
     browser = webdriver.Chrome(options=options, service=s)
