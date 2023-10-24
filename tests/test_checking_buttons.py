@@ -1,15 +1,16 @@
-from elements.attach_buttons import AttachButtons
 import allure
+from elements.attach_buttons import AttachButtons
+from elements.checkboxes import Checkboxes
+from elements.radio_buttons import RadioButtons
 
 Ab = AttachButtons()
-@allure.description('Checking the buttons for attaching files to pages')
-def test_checking_button_attach_file(standard_preparation):
-    """ Прикрепление файла. """
+Rb = RadioButtons()
+Ch = Checkboxes()
+
+@allure.description('Проверка всех кнопок на странице')
+def test_checking_buttons(standard_preparation):
 
     Ab.checking_button_attach_file()
-
-def test_checking_deleted_attach_file(standard_preparation):
-    """ Удаление прикрепленного файла. """
-
-    Ab.checking_delete_attach_file()
-
+    Ab.checking_button_delete_attach_file()
+    Ch.checking_status_change_checkboxes()
+    Rb.checking_status_change_radiobutton()

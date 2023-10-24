@@ -1,5 +1,5 @@
+import allure
 from base.base_class import Base
-from selenium.webdriver import ActionChains as Ac
 
 
 base = Base()
@@ -20,45 +20,31 @@ class RadioButtons(Base):
                     False - в случае, если переключатель не выбран;
                     True - в случае, если переключатель выбран.
         """
-        return self.get_clickable_element(radio_button).is_selected()
+        return radio_button.is_selected()
 
     # Methods
 
     def checking_status_change_radiobutton(self):
-        """ Метод проверки изменения состояния переключателя.
+        """ Метод проверки изменения состояния переключателей.
                 Проверки:
                  - состояние переключателя по умолчанию;
                  - состояние переключателя после нажатия на них;
-                 - отключение переключателя.
         """
-
-        list_elements = self.get_presence_elements(self.locators_radio_buttons)
-        n = 0
-        for _ in list_elements:
-            default_status = list_elements[n].is_selected()
-            Ac(self.browser)\
-                .move_to_element(self.get_clickable_element(f'{self.locators_buttons}{[n+1]}'))\
-                .click()\
-                .perform()
-            after_status = list_elements[n].is_selected()
-            assert default_status is False and after_status is True
-            n += 1
-        n = 0
-        for _ in list_elements:
-            before_status = list_elements[n].is_selected()
-            self.get_clickable_element(f'{self.locators_buttons}{[n+1]}').click()
-            after_status = list_elements[n].is_selected()
-            assert before_status is True and after_status is False
-            n += 1
-        print('___Checking default status radiobuttons. __PASSED')
-        print('___Checking status change radiobuttons. __PASSED')
-
-    def checking_selected_checkboxes(self):
-        """ Метод проверки состояния переключателей по умолчанию. """
-
-        list_elements = self.get_presence_elements(self.locators_radio_buttons)
-        n = 0
-        for _ in list_elements:
-            assert list_elements[n].is_selected() is False
-            n += 1
-        print('___Checkbox is not selected. __PASSED')
+        with allure.step('Проверка переключателей.'):
+            list_elements = self.get_presence_elements(self.locators_radio_buttons)
+            n = 0
+            with allure.step(
+                    'Проверка состояния переключателей по умолчанию. '
+                    'Проверка включения переключателей, после клика по ним'):
+                for _ in list_elements:
+                    default_status = self.get_status_radiobutton(list_elements[n])
+                    name_element = list_elements[n].get_attribute('value')
+                    with allure.step(f'Проверяемый элемент:"{name_element}"'):
+                        self.scroll_to_element(self.get_clickable_element(f'{self.locators_buttons}{[n+7]}'))
+                        self.click_on_element(f'{self.locators_buttons}{[n+7]}')
+                        after_status = self.get_status_radiobutton(list_elements[n])
+                        assert default_status is False and after_status is True, \
+                            print('\nFAILED___Checking status checkboxes.')
+                    n += 1
+                print('\n___Checking default status radiobuttons. __PASSED')
+                print('\n___Checking activation radiobuttons, after click. __PASSED')

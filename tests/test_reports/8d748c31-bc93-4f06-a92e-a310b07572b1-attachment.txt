@@ -1,0 +1,18 @@
+
+ Running the test.
+
+___Uploaded file: DrZoidberg.jpg __PASSED
+
+___File is deleted __PASSED
+
+___Checking default status checkboxes. __PASSED
+
+___Checking activation checkboxes, after click. __PASSED
+
+___Checking disabling checkboxes, after click. __PASSED
+
+___Checking default status radiobuttons. __PASSED
+
+___Checking activation radiobuttons, after click. __PASSED
+
+ Completing the test.

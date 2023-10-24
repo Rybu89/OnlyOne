@@ -1,0 +1,115 @@
+
+START
+
+ Running the test.
+
+___Checking for element existing: Заполните анкету,
+чтобы обсудить проект __PASSED
+___Screenshot
+
+___Checking for element existing: Ваши контакты __PASSED
+___Screenshot
+
+___Checking for element existing: О проекте __PASSED
+___Screenshot
+
+___Checking for element existing: Бюджет __PASSED
+___Screenshot
+
+___Checking for element existing: Откуда вы узнали о нас? __PASSED
+___Screenshot
+
+___Checking for element existing: Комплекс работ __PASSED
+___Screenshot
+
+___Checking for element existing: Сайт __PASSED
+___Screenshot
+
+___Checking for element existing: Сервис __PASSED
+___Screenshot
+
+___Checking for element existing: Дизайн __PASSED
+___Screenshot
+
+___Checking for element existing: UX-аудит __PASSED
+___Screenshot
+
+___Checking for element existing: Брендинг __PASSED
+___Screenshot
+
+___Checking for element existing: Менее 2 млн __PASSED
+___Screenshot
+
+___Checking for element existing: 2-3 млн __PASSED
+___Screenshot
+
+___Checking for element existing: 3–5 млн __PASSED
+___Screenshot
+
+___Checking for element existing: 5–10 млн __PASSED
+___Screenshot
+
+___Checking for element existing: 10-20 млн __PASSED
+___Screenshot
+
+___Checking for element existing: Более 20 млн __PASSED
+___Screenshot
+
+___Checking for element existing: Рейтинги __PASSED
+___Screenshot
+
+___Checking for element existing: Копирайт на сайте __PASSED
+___Screenshot
+
+___Checking for element existing: Соцсети __PASSED
+___Screenshot
+
+___Checking for element existing: Рекомендации __PASSED
+___Screenshot
+
+___Checking for element existing: Давно знаю __PASSED
+___Screenshot
+
+___Checking for element existing: Прикрепить файл __PASSED
+___Screenshot
+
+___Checking for element existing: ОТПРАВИТЬ __PASSED
+___Screenshot
+
+___Checking for element existing: Мы принимаем на себя обязательство о том, что коммерческая информация, полученная в рамках подготовки и реализации проекта, является конфиденциальной и не подлежит разглашению или передаче третьим лицам. __PASSED
+___Screenshot
+
+___Checking for element existing: 1. Из какой вы компании, чем она занимается?
+2. С чем мы можем помочь? Как представляете результат?
+3. На какой срок работы и бюджет рассчитываете?
+4. Напишите, если удобнее общаться в мессенджере. __PASSED
+___Screenshot
+
+___Checking for element existing: Нажимая кнопку “Отправить”, я даю согласие на обработку своих персональных данных и соглашаюсь с Условиями использования и Политикой конфиденциальности __PASSED
+___Screenshot
+
+___Checking for element existing: Имя* __PASSED
+___Screenshot
+
+___Checking for element existing: E-mail* __PASSED
+___Screenshot
+
+___Checking for element existing: Телефон __PASSED
+___Screenshot
+
+___Checking for element existing: Компания __PASSED
+___Screenshot
+
+___Checking for element existing: Расскажите о вашем проекте __PASSED
+___Screenshot
+
+ Completing the test.
+
+ Запись cookies
+
+ Cookies записаны
+
+ Удаление скриншотов
+Скриншоты удалены
+
+ FINISH

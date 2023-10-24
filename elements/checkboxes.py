@@ -1,5 +1,6 @@
+import allure
+
 from base.base_class import Base
-from selenium.webdriver import ActionChains as Ac
 
 
 class Checkboxes(Base):
@@ -21,6 +22,9 @@ class Checkboxes(Base):
 
         return self.get_clickable_element(locator_checkbox).is_selected()
 
+    def get_checkbox(self, locator_checkbox):
+        return self.get_clickable_element(locator_checkbox)
+
     # Methods
 
     def checking_status_change_checkboxes(self):
@@ -30,33 +34,42 @@ class Checkboxes(Base):
                  - состояние чек-боксов после нажатия на них;
                  - отключение чек-боксов.
         """
+        with allure.step('Проверка чек-боксов'):
+            list_elements = self.get_presence_elements(self.locators_checkbox_buttons)
+            n = 0
+            try:
+                with allure.step('Проверка состояния чек-боксов по умолчанию. '
+                                 'Проверка включения чек-боксов, после клика по ним'):
+                    for _ in list_elements:
+                        default_status = list_elements[n].is_selected()
+                        name_element = self.get_checkbox(f'{self.locators_buttons}{[n+1]}').text
+                        with allure.step(f'Проверяемый элемент:"{name_element}"'):
+                            self.scroll_to_element(self.get_checkbox(f'{self.locators_buttons}{[n+1]}'))
+                            self.click_on_element(f'{self.locators_buttons}{[n+1]}')
+                            after_status = list_elements[n].is_selected()
+                            assert default_status is False and after_status is True
+                            n += 1
+                    print('\n___Checking default status checkboxes. __PASSED')
+                    print('\n___Checking activation checkboxes, after click. __PASSED')
 
-        list_elements = self.get_presence_elements(self.locators_checkbox_buttons)
-        n = 0
-        try:
-            for _ in list_elements:
-                default_status = list_elements[n].is_selected()
-                Ac(self.browser)\
-                    .move_to_element(self.get_clickable_element(f'{self.locators_buttons}{[n+1]}')).perform()
-                self.get_clickable_element(f'{self.locators_buttons}{[n + 1]}').click()
-                after_status = list_elements[n].is_selected()
-                assert default_status is False and after_status is True
-                n += 1
-            print('\n___Checking default status checkboxes. __PASSED')
-        except:
-            print('\nFAILED___Checking default status checkboxes.')
+            except AssertionError:
+                print('\nFAILED___Checking default status checkboxes.')
 
-        n = 0
-        try:
-            for _ in list_elements:
-                before_status = list_elements[n].is_selected()
-                self.get_presence_element(f'{self.locators_buttons}{[n+1]}').click()
-                after_status = list_elements[n].is_selected()
-                assert before_status is True and after_status is False
-                n += 1
-            print('\n___Checking status change checkboxes. __PASSED')
-        except:
-            print('\nFAILED___Checking status change checkboxes.')
+            n = 0
+            try:
+                with allure.step('Проверка отключения чек-боксов, после клика по ним'):
+                    for _ in list_elements:
+                        before_status = list_elements[n].is_selected()
+                        name_element = self.get_checkbox(f'{self.locators_buttons}{[n + 1]}').text
+                        with allure.step(f'Проверяемый элемент:"{name_element}"'):
+                            self.scroll_to_element(self.get_checkbox(f'{self.locators_buttons}{[n+1]}'))
+                            self.click_on_element(f'{self.locators_buttons}{[n+1]}')
+                            after_status = list_elements[n].is_selected()
+                            assert before_status is True and after_status is False
+                            n += 1
+                    print('\n___Checking disabling checkboxes, after click. __PASSED')
+            except AssertionError:
+                print('\nFAILED___Checking status change checkboxes.')
 
     def checking_selected_checkboxes(self):
         """ Метод проверки состояния чек-боксов по умолчанию. """
